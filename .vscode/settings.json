@@ -1,0 +1,15 @@
+{
+    "editor.suggest.showSnippets": false,
+    "[terraform]": {
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
+        "editor.suggestOnTriggerCharacters": false
+    },
+    "terraform.languageServer.disabledCapabilities": {
+        "completion": true
+    }
+}
+

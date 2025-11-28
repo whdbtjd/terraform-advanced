@@ -17,6 +17,10 @@ resource "aws_s3_bucket" "tfstate" {
     versioning {
         enabled = true # 버전관리 활성화
     }
+
+    lifecycle {
+    prevent_destroy = true
+    }
 }
 
 resource "aws_dynamodb_table" "terraform_state_lock" {
@@ -27,6 +31,10 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
     attribute {
         name = "LockID"
         type = "S"
+    }
+
+    lifecycle {
+    prevent_destroy = true
     }
 }
 

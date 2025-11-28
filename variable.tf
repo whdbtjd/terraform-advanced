@@ -38,7 +38,7 @@ variable "cidr_numeral_private" {
     }
 }
 
-variable "cidr_numeral_db" {
+variable "cidr_numeral_private_db" {
     default = {
         "0" = "160"
         "1" = "176"

@@ -60,17 +60,6 @@ output "db_private_subnets" {
   value = aws_subnet.private_db.*.id
 }
 
-# Route53
-output "route53_internal_zone_id" {
-  description = "Internal Zone ID for VPC"
-  value = aws_route53_zone.internal.zone_id
-}
-
-output "route53_internal_domain" {
-  description = "Internal Domain Name for VPC"
-  value = aws_route53_zone.internal.name
-}
-
 # Security Group
 output "aws_security_group_bastion_id" {
   description = "ID of bastion security group"
@@ -85,17 +74,6 @@ output "aws_security_group_bastion_aware_id" {
 output "aws_security_group_default_id" {
   description = "ID of default security group"
   value = aws_security_group.default.id
-}
-
-output "aws_security_group_home_id" {
-  description = "ID of home security group"
-  value = aws_security_group.home.id
-}
-
-# ETC
-output "env_suffix" {
-  description = "Suffix of the environment"
-  value       = var.env_suffix
 }
 
 output "billing_tag" {

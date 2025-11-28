@@ -30,6 +30,7 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
     }
 }
 
+
 terraform {
     backend "s3" {
         bucket = "whdbtjd-apnortheast2-tfstate"
@@ -39,6 +40,7 @@ terraform {
         dynamodb_table = "terraform-lock"
     }
 }
+
 
 variable "account_id" {
     default = "whdbtjd"

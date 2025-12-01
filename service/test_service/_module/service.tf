@@ -50,6 +50,39 @@ resource "aws_lb_target_group" "external" {
     tags = var.lb_variables.external_lb_tg.tags[var.shard_id]
 }
 
+################## Security Group for EC2
+resource "aws_security_group" "ec2" {
+    name        = "${var.service_name}-${var.vpc_name}"
+    description = "${var.service_name} Instance Security Group"
+    vpc_id      = var.target_vpc
+
+    ingress {
+        from_port = var.service_port
+        to_port   = var.service_port
+        protocol  = "tcp"
+
+        security_groups = [
+            aws_security_group.external_lb.id,
+        ]
+
+        description = "Port Open for ${var.service_name}"
+    }
+
+    egress {
+        from_port   = 0
+        to_port     = 0
+        protocol    = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+        description = "Internal outbound traffic"
+    }
+
+    tags = {
+        Name  = "${var.service_name}-${var.vpc_name}-sg"
+        app   = var.service_name
+        stack = var.vpc_name
+    }
+}
+
 resource "aws_lb_listener" "internal_80" {
     load_balancer_arn = aws_lb.external.arn
     port              = "80"
@@ -58,5 +91,46 @@ resource "aws_lb_listener" "internal_80" {
     default_action {
         target_group_arn = aws_lb_target_group.external.arn
         type             = "forward"
+    }
+}
+
+resource "aws_lb" "external" {
+    name               = "${var.service_name}-${var.shard_id}-ext"
+    subnets            = var.public_subnets
+    internal           = false
+
+    security_groups = [
+        aws_security_group.external_lb.id
+    ]
+
+    load_balancer_type = "application"
+
+    tags = var.lb_variables.external_lb.tags[var.shard_id]
+}
+
+resource "aws_lb_listener" "external_443" {
+    load_balancer_arn = aws_lb.external.arn
+    port              = "443"
+    protocol          = "HTTPS"
+
+    default_action {
+        target_group_arn = aws_lb_target_group.external.arn
+        type             = "forward"
+    }
+}
+
+resource "aws_lb_listener" "external_80" {
+    load_balancer_arn = aws_lb.external.arn
+    port              = "80"
+    protocol          = "HTTP"
+
+    default_action {
+        type = "redirect"
+
+        redirect {
+            port        = "443"
+            protocol    = "HTTPS"
+            status_code = "HTTP_301"
+        }
     }
 }

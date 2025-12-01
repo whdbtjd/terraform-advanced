@@ -39,3 +39,8 @@ terraform.rc
 .DS_Store
 Thumbs.db
 
+# Tool/cache binaries
+terraform-provider-*
+sops-v*
+bash.exe.stackdump
+

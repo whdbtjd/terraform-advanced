@@ -2,7 +2,7 @@ module "test_application"{
 
     source = "../app_module/_module"
 
-    service_name = "whdbtjd_test_application"
+    service_name = "whdbtjd-test-app"
 
     service_port = 8080
     healthcheck_port = 8080

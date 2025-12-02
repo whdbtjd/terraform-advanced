@@ -3,16 +3,16 @@ variable "lb_variables" {
 
     # Target Group slow start (for all shards)
     target_group_slow_start = {
-      whdbtjd_1 = 0
-      whdbtjd_2 = 0
-      whdbtjd_3 = 0
+      whdbtjd-1 = 0
+      whdbtjd-2 = 0
+      whdbtjd-3 = 0
     }
 
     # Target Group deregistration delay (for all shards)
     target_group_deregistration_delay = {
-      whdbtjd_1 = 0
-      whdbtjd_2 = 60
-      whdbtjd_3 = 60
+      whdbtjd-1 = 0
+      whdbtjd-2 = 60
+      whdbtjd-3 = 60
     }
 
     ###########################
@@ -20,28 +20,28 @@ variable "lb_variables" {
     ###########################
     internal_lb = {
       tags = {
-        whdbtjd_1 = {
-          Name    = "hello-whdbtjd_1-internal-lb"
+        whdbtjd-1 = {
+          Name    = "hello-whdbtjd-1-internal-lb"
           app     = "hello"
           project = "hello"
           env     = "dev"
-          stack   = "whdbtjd_1"
+          stack   = "whdbtjd-1"
         }
 
-        whdbtjd_2 = {
-          Name    = "hello-whdbtjd_2-internal-lb"
+        whdbtjd-2 = {
+          Name    = "hello-whdbtjd-2-internal-lb"
           app     = "hello"
           project = "hello"
           env     = "dev"
-          stack   = "whdbtjd_2"
+          stack   = "whdbtjd-2"
         }
 
-        whdbtjd_3 = {
-          Name    = "hello-whdbtjd_3-internal-lb"
+        whdbtjd-3 = {
+          Name    = "hello-whdbtjd-3-internal-lb"
           app     = "hello"
           project = "hello"
           env     = "prod"
-          stack   = "whdbtjd_3"
+          stack   = "whdbtjd-3"
         }
       }
     }
@@ -51,28 +51,28 @@ variable "lb_variables" {
     ###############################
     internal_lb_tg = {
       tags = {
-        whdbtjd_1 = {
-          Name    = "hello-whdbtjd_1-internal-tg"
+        whdbtjd-1 = {
+          Name    = "hello-whdbtjd-1-internal-tg"
           app     = "hello"
           project = "hello"
           env     = "dev"
-          stack   = "whdbtjd_1"
+          stack   = "whdbtjd-1"
         }
 
-        whdbtjd_2 = {
-          Name    = "hello-whdbtjd_2-internal-tg"
+        whdbtjd-2 = {
+          Name    = "hello-whdbtjd-2-internal-tg"
           app     = "hello"
           project = "hello"
           env     = "dev"
-          stack   = "whdbtjd_2"
+          stack   = "whdbtjd-2"
         }
 
-        whdbtjd_3 = {
-          Name    = "hello-whdbtjd_3-internal-tg"
+        whdbtjd-3 = {
+          Name    = "hello-whdbtjd-3-internal-tg"
           app     = "hello"
           project = "hello"
           env     = "prod"
-          stack   = "whdbtjd_3"
+          stack   = "whdbtjd-3"
         }
       }
     }
@@ -82,28 +82,28 @@ variable "lb_variables" {
     ###########################
     external_lb = {
       tags = {
-        whdbtjd_1 = {
-          Name    = "hello-whdbtd_1-external-lb"
+        whdbtjd-1 = {
+          Name    = "hello-whdbtd-1-external-lb"
           app     = "hello"
           project = "hello"
           env     = "dev"
-          stack   = "whdbtd_1"
+          stack   = "whdbtd-1"
         }
 
-        whdbtjd_2 = {
-          Name    = "hello-whdbtjd_2-external-lb"
+        whdbtjd-2 = {
+          Name    = "hello-whdbtjd-2-external-lb"
           app     = "hello"
           project = "hello"
           env     = "dev"
-          stack   = "whdbtjd_2"
+          stack   = "whdbtjd-2"
         }
 
-        whdbtjd_3 = {
-          Name    = "hello-whdbtjd_3-external-lb"
+        whdbtjd-3 = {
+          Name    = "hello-whdbtjd-3-external-lb"
           app     = "hello"
           project = "hello"
           env     = "prod"
-          stack   = "whdbtjd_3"
+          stack   = "whdbtjd-3"
         }
       }
     }
@@ -113,28 +113,28 @@ variable "lb_variables" {
     ###################################
     external_lb_tg = {
       tags = {
-        whdbtjd_1 = {
-          Name    = "hello-whdbtd_1-external-tg"
+        whdbtjd-1 = {
+          Name    = "hello-whdbtd-1-external-tg"
           app     = "hello"
           project = "hello"
           env     = "dev"
-          stack   = "whdbtd_1"
+          stack   = "whdbtd-1"
         }
 
-        whdbtjd_2 = {
-          Name    = "hello-whdbtjd_2-external-tg"
+        whdbtjd-2 = {
+          Name    = "hello-whdbtjd-2-external-tg"
           app     = "hello"
           project = "hello"
           env     = "dev"
-          stack   = "whdbtjd_2"
+          stack   = "whdbtjd-2"
         }
 
-        whdbtjd_3 = {
-          Name    = "hello-whdbtjd_3-external-tg"
+        whdbtjd-3 = {
+          Name    = "hello-whdbtjd-3-external-tg"
           app     = "hello"
           project = "hello"
           env     = "prod"
-          stack   = "whdbtjd_3"
+          stack   = "whdbtjd-3"
         }
       }
     }

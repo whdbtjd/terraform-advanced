@@ -11,7 +11,8 @@ module "test_application"{
     public_subnets = data.terraform_remote_state.vpc.outputs.public_subnets
     private_subnets = data.terraform_remote_state.vpc.outputs.private_subnets
     aws_region = data.terraform_remote_state.vpc.outputs.aws_region
-    vpc_cidr_numeral = data.terraform_remote_state.vpc.outputs.vpc_cidr_numeral
+    vpc_cidr_numeral = data.terraform_remote_state.vpc.outputs.cidr_numeral
+    target_vpc = data.terraform_remote_state.vpc.outputs.vpc_id
     vpc_name = data.terraform_remote_state.vpc.outputs.vpc_name
     billing_tag = data.terraform_remote_state.vpc.outputs.billing_tag
 

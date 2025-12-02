@@ -16,10 +16,12 @@ module "test_application"{
     billing_tag = data.terraform_remote_state.vpc.outputs.billing_tag
 
     lb_variables = var.lb_variables
-    sg_variables = var.sg_Variables
+    sg_variables = var.sg_variables
 
     ext_lb_ingress_cidrs = [
         "0.0.0.0/0"
     ]
+
+    key_name = "inflearn-default-key"
     
 }

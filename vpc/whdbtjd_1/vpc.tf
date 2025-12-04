@@ -88,7 +88,7 @@ resource "aws_route_table" "private" {
     vpc_id = aws_vpc.default.id
 
     tags = {
-        Name    = "private${count.index}rt-${var.vpc_name}"
+        Name    = "private${count.index + 1}rt-${var.vpc_name}"
         Network = "Private"
     }
 }
@@ -108,7 +108,7 @@ resource "aws_subnet" "private_db" {
     availability_zone = element(var.availability_zones, count.index)
 
     tags = {
-        Name   = "db-private${count.index}-${var.vpc_name}"
+        Name   = "db-private${count.index + 1}-${var.vpc_name}"
         Networ = "Private"
     }
 }

@@ -80,3 +80,8 @@ output "billing_tag" {
   description = "The environment value for biliing consolidation."
   value       = var.billing_tag
 }
+
+output "cidr_numeral" {
+  value = var.cidr_numeral
+}
+

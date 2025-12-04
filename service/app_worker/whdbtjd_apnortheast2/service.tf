@@ -23,6 +23,6 @@ module "test_application"{
         "0.0.0.0/0"
     ]
 
-    key_name = "inflearn-default-key"
+    key_name = "Terraform"
     
 }

@@ -38,41 +38,17 @@ variable "availability_zone" {
   default     = "ap-northeast-2a"
 }
 
-variable "route53_internal_domain" {
-  description = "base domain name for internal"
-}
-
-variable "route53_internal_zone_id" {
-  description = "internal domain zone id"
-}
-
-variable "route53_external_zone_id" {
-  description = "r53 zone id"
-  default     = ""
-}
 
 variable "vpc_cidr_numeral" {
   description = "The VPC CIDR numeral (e.g. 'n' in 10.n.0.0/16)"
 }
 
-variable "acm_external_ssl_certificate_arn" {
-  description = "ssl cert id"
-  default     = ""
-}
 
 variable "ext_lb_ingress_cidrs" {
   description = " Ingress of security group of external load-balancer"
   type        = list(string)
 }
 
-variable "home_sg" {
-  description = "Office people IP list."
-  default     = ""
-}
-
-variable "domain_name" {
-  description = "Domain Name"
-}
 
 variable "service_port" {
   description = "Service Port"
